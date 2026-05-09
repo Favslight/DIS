@@ -10,7 +10,25 @@ const MONGODB_URI =
 
 async function buildServer() {
   await fastify.register(cors, {
-    origin: "http://localhost:5173",
+    origin: (origin, callback) => {
+      if (!origin) {
+        callback(null, true);
+        return;
+      }
+
+      const allowedOrigins = [
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+      ];
+
+      const isRenderOrigin = origin.endsWith(".onrender.com");
+      if (allowedOrigins.includes(origin) || isRenderOrigin) {
+        callback(null, true);
+        return;
+      }
+
+      callback(new Error("Not allowed by CORS"), false);
+    },
     methods: ["GET", "POST"],
   });
 

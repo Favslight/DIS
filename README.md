@@ -31,6 +31,7 @@ Backend
 - MongoDB
 - Mongoose
 - bcrypt
+- cors
 
 Project Structure
 
@@ -38,7 +39,7 @@ project-folder/
 │
 ├── frontend/
 │   ├── src/
-│   ├── public
+│   ├── public/
 │
 ├── backend/
 │   ├── models/
@@ -65,7 +66,7 @@ How To Run The Project
 
 Step 1 — Clone The Project
 
-git clone <your-repository-url>
+git clone <my-repository-url>
 
 Step 2 — Install Backend Dependencies
 
@@ -80,15 +81,10 @@ Example:
 MONGO_URI=your_mongodb_connection_string
 PORT=5000
 
-Step 4 — Start The Backend Server
-
-npm run dev
-
-Backend runs on:
-http://localhost:5000
+Step 4 — The backend server is already deployed
 
 Step 5 — Install Frontend Dependencies
-
+open a new terminal
 cd frontend
 npm install
 
@@ -110,6 +106,8 @@ Request Body
   "email": "samuel@example.com",
   "password": "12345678"
 }
+
+The above step might be too overwhelming if you are not familiar with terminal commands, so I made it easy by deploying to render, so users can easily test a live site. Isn't that wonderful?
 
 How Backend And Frontend Communicate
 

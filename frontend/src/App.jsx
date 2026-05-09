@@ -23,8 +23,9 @@ function App() {
     setIsSubmitting(true);
     setStatus({ type: "", message: "" });
 
+    // I am hard coding the backend url here for simplicity, but in a real application, you would want to use an environment variable or configuration file to manage this. Na me write this line.
     try {
-      const response = await fetch("http://localhost:5000/api/register", {
+      const response = await fetch("https://dis-kv51.onrender.com/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
